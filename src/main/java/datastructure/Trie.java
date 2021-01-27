@@ -1,17 +1,15 @@
 package datastructure;
 
+import javax.swing.tree.TreeNode;
+
 public class DictionaryTree {
-    private class TreeNode {
-        boolean isEnd;
-        TreeNode[] next;
+    private boolean isEnd;
+    private TreeNode[] next;
 
-        public TreeNode() {
-            this.isEnd = false;
-            this.next = new TreeNode[26];
-        }
+
+    public void setRoot(TreeNode root) {
+        this.root = root;
     }
-
-    private TreeNode root;
 
     public DictionaryTree() {
         this.root = new TreeNode();
