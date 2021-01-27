@@ -1,26 +1,39 @@
 package datastructure;
 
+
 import javax.swing.tree.TreeNode;
 
-public class DictionaryTree {
+public class Trie {
     private boolean isEnd;
-    private TreeNode[] next;
+    private Trie[] next;
 
-
-    public void setRoot(TreeNode root) {
-        this.root = root;
+    public boolean isEnd() {
+        return isEnd;
     }
 
-    public DictionaryTree() {
-        this.root = new TreeNode();
+    public void setEnd(boolean end) {
+        isEnd = end;
+    }
+
+    public Trie[] getNext() {
+        return next;
+    }
+
+    public void setNext(Trie[] next) {
+        this.next = next;
+    }
+
+    public Trie(){
+        this.isEnd = false;
+        this.next = new Trie[26];
     }
 
     public void insert(String word) {
-        TreeNode node = this.root;
+        Trie node = this;
         for (char c : word.toCharArray()) {
             int index = c - 'a';
             if (node.next[index] == null) {
-                node.next[index] = new TreeNode();
+                node.next[index] = new Trie();
             }
             node = node.next[index];
         }
@@ -28,7 +41,7 @@ public class DictionaryTree {
     }
 
     public boolean search(String word) {
-        TreeNode node = this.root;
+        Trie node = this;
         for (char c : word.toCharArray()) {
             int index = c - 'a';
             if (node.next[index] == null) {
@@ -40,7 +53,7 @@ public class DictionaryTree {
     }
 
     public boolean startsWith(String prefix) {
-        TreeNode node = this.root;
+        Trie node = this;
         for (char c : prefix.toCharArray()) {
             int index = c - 'a';
             if (node.next[index] == null) {
