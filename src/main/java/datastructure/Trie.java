@@ -1,8 +1,8 @@
 package datastructure;
 
-
-import javax.swing.tree.TreeNode;
-
+/**
+ * 字典树
+ */
 public class Trie {
     private boolean isEnd;
     private Trie[] next;
@@ -23,7 +23,7 @@ public class Trie {
         this.next = next;
     }
 
-    public Trie(){
+    public Trie() {
         this.isEnd = false;
         this.next = new Trie[26];
     }
